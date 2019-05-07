@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name":         "GobiExtension",
+  "description":  "Help when demonstrating and selling Gobi",
+  "version":      "1.0.2",
+  "permissions": [
+    "https://*/"
+  ],
+  "background": {
+    "scripts": []
+  },
+  "browser_action": {
+    "default_icon": {
+      "128": "extension_icon.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [ {
+      "exclude_globs":    [  ],
+      "include_globs":    [ "*" ],
+      "js":               [ "browserify-output/content-script.js" ],
+      "matches":          [ "https://*/*" ],
+      "run_at":           "document_idle"
+  } ],
+  "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'; style-src 'self' 'unsafe-inline'",
+  "icons": {
+    "128": "extension_icon.png"
+  }
+}

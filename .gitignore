@@ -1,0 +1,5 @@
+.DS_store
+browserify-output/
+coffee-to-js-output/
+node_modules/
+package-lock.json
