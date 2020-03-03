@@ -3,7 +3,6 @@ getTabs = (callback) ->
 firstTabId = null
 getTabs (tabs) ->
   firstTabId = tabs[0].id
-
 button = document.getElementsByTagName('button')[0]
 button.addEventListener 'click', (event) ->
   responseHandler = (response) ->
@@ -15,4 +14,3 @@ upButton.addEventListener 'click', (event) ->
 rightButton = document.getElementById 'right-dom-hierarchy'
 rightButton.addEventListener 'click', (event) ->
   chrome.tabs.sendMessage firstTabId, {type: 'moveGobiRightDomHierarchy'}, ->
-
