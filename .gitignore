@@ -1,5 +1,5 @@
 .DS_store
-browserify-output/
-coffee-to-js-output/
+dist/
 node_modules/
 package-lock.json
+yarn.lock

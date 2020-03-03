@@ -1,6 +1,6 @@
 log = console.log.bind console
 
-`const gobi = require('@gobistories/gobi-web-integration/dist/gobi-web-integration.js')`
+`const gobi = require('@gobistories/gobi-web-integration')`
 
 lastGobiContainer = null
 

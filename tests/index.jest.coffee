@@ -9,3 +9,6 @@ tests =
 do tests[testName] for testName of tests
 
 console.log 'All tests succeeded.'
+
+test 'a test', ->
+  console.log 'inside the test'

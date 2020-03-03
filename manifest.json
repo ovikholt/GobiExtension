@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name":         "GobiExtension",
   "description":  "Help when demonstrating and selling Gobi",
-  "version":      "1.0.2",
+  "version":      "1.0.3",
   "permissions": [
     "https://*/"
   ],
@@ -18,7 +18,7 @@
   "content_scripts": [ {
       "exclude_globs":    [  ],
       "include_globs":    [ "*" ],
-      "js":               [ "browserify-output/content-script.js" ],
+      "js":               [ "dist/browserify-output/content-script.js" ],
       "matches":          [ "https://*/*" ],
       "run_at":           "document_idle"
   } ],

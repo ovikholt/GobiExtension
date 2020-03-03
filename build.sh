@@ -1,7 +1,4 @@
-mkdir -p coffee-to-js-output &&\
-coffee --compile --output coffee-to-js-output *.coffee &&\
-browserify coffee-to-js-output/content-script.js > browserify-output/content-script.js &&\
-node coffee-to-js-output/tests.js &&\
+mkdir -p dist/coffee-to-js-output &&\
+coffee --compile --output dist/coffee-to-js-output src &&\
+browserify dist/coffee-to-js-output/content-script.js > dist/browserify-output/content-script.js &&\
 echo "yay."
-
-#The last node command just runs some tests.
