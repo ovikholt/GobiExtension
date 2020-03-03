@@ -1,7 +1,12 @@
 log = console.log.bind console
 `const gobi = require('@gobistories/gobi-web-integration')`
 lastGobiContainer = null
-inject = (injectTarget) ->
+defaultStories = [
+  { id: '5601374f1437c89b6f6a641c97cc9d751982640f' }
+  { id: '42b095ee3d96ad3670ef6e4d638cfeadd75671f5' }
+  { id: '1012da7b037762812a6b6ef4e9a2c2a286d8b63e' }
+]
+inject = (injectTarget, gobiStoryIds) ->
   body = document.body or document.getElementByTagName('body')[0]
   # link = document.createElement 'link'
   # link.href = 'https://unpkg.com/@gobistories/gobi-web-integration/dist/gobi-web-integration.css'
@@ -10,18 +15,15 @@ inject = (injectTarget) ->
   lastGobiContainer = document.createElement 'div'
   injectTarget.appendChild lastGobiContainer
   # injectTarget.insertBefore injectTarget.parentNode, lastGobiContainer
+  gobiStories = gobiStoryIds.map (id) -> { id: id }
   new gobi.Bubbles
     container: lastGobiContainer
-    stories: [
-      { id: '5601374f1437c89b6f6a641c97cc9d751982640f' }
-      { id: '42b095ee3d96ad3670ef6e4d638cfeadd75671f5' }
-      { id: '1012da7b037762812a6b6ef4e9a2c2a286d8b63e' }
-    ]
-letUserClickElement = ->
+    stories: if gobiStories.length then gobiStories else defaultStories
+letUserClickElement = (gobiStoryIds) ->
   documentWideClickListener = (event) ->
     event = event or window.event
     clickedElement = event.target or event.srcElement
-    inject clickedElement
+    inject clickedElement, gobiStoryIds
     event.preventDefault()
     document.removeEventListener 'click', documentWideClickListener
   document.addEventListener 'click', documentWideClickListener, false
@@ -34,7 +36,7 @@ setupGobiPopupListener = ->
     switch message.type
       when 'letUserClickElement'
         sendResponse()  # causes popup to close
-        letUserClickElement()
+        letUserClickElement message.gobiStoryIds
       when 'moveGobiUpDomHierarchy'
         moveGobiUpDomHierarchy()
       when 'moveGobiRightDomHierarchy'
