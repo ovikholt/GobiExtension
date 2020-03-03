@@ -15,7 +15,7 @@ inject = (injectTarget) ->
   lastGobiContainer = document.createElement 'div'
   injectTarget.appendChild lastGobiContainer
   # injectTarget.insertBefore injectTarget.parentNode, lastGobiContainer
-  new gobi.MobileLayout
+  new gobi.Bubbles
     container: lastGobiContainer
     stories: [
       { id: '5601374f1437c89b6f6a641c97cc9d751982640f' }
