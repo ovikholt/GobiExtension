@@ -34,6 +34,8 @@ letUserClickElement = ->
 
 moveGobiUpDomHierarchy = ->
   lastGobiContainer?.parentElement?.parentElement?.appendChild lastGobiContainer
+moveGobiRightDomHierarchy = ->
+  lastGobiContainer?.parentElement?.insertBefore lastGobiContainer, lastGobiContainer?.nextSibling?.nextSibling or lastGobiContainer?.parentElement?.appendChild lastGobiContainer or moveGobiUpDomHierarchy()
 
 setupGobiPopupListener = ->
   chromeMessageListener = (message, sender, sendResponse) ->
@@ -43,6 +45,8 @@ setupGobiPopupListener = ->
         letUserClickElement()
       when 'moveGobiUpDomHierarchy'
         moveGobiUpDomHierarchy()
+      when 'moveGobiRightDomHierarchy'
+        moveGobiRightDomHierarchy()
   chrome.runtime.onMessage.addListener chromeMessageListener
 
 contentScript = ->
