@@ -4,6 +4,7 @@
   "description": "Lets you click to pop up Gobi bubbles on any webpage",
   "main": "src/index.coffee",
   "scripts": {
+    "create-zip": "zip -r ../GobiExtension.zip . -x '*.git*' -x '*node_modules*'",
     "build": "sh build.sh",
     "test": "npx jest"
   },
