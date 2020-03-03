@@ -5,7 +5,7 @@
   "main": "src/index.coffee",
   "scripts": {
     "build": "sh build.sh",
-    "test": "node_modules/jest/bin/jest.js"
+    "test": "npx jest"
   },
   "dependencies": {},
   "devDependencies": {
