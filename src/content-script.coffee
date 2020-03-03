@@ -7,10 +7,10 @@ lastGobiContainer = null
 inject = (injectTarget) ->
   body = document.body or document.getElementByTagName('body')[0]
 
-  link = document.createElement 'link'
-  link.href = 'https://unpkg.com/@gobistories/gobi-web-integration/dist/gobi-web-integration.css'
-  link.rel = 'stylesheet'
-  body.appendChild link
+  # link = document.createElement 'link'
+  # link.href = 'https://unpkg.com/@gobistories/gobi-web-integration/dist/gobi-web-integration.css'
+  # link.rel = 'stylesheet'
+  # body.appendChild link
 
   lastGobiContainer = document.createElement 'div'
   injectTarget.appendChild lastGobiContainer
