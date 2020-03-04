@@ -3,9 +3,7 @@
   "name":         "GobiExtension",
   "description":  "Help when demonstrating and selling Gobi",
   "version":      "2.0.0",
-  "permissions": [
-    "https://*/"
-  ],
+  "permissions": ["activeTab"],
   "background": {
     "scripts": []
   },
