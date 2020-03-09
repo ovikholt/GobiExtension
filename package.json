@@ -1,6 +1,6 @@
 {
   "name": "gobi-insert-stories",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Lets you click to pop up Gobi bubbles on any webpage",
   "main": "src/index.coffee",
   "scripts": {
