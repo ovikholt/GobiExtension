@@ -2,9 +2,9 @@ log = console.log.bind console
 `const gobi = require('@gobistories/gobi-web-integration')`
 lastGobiContainer = null
 defaultStories = [
-  { id: '5601374f1437c89b6f6a641c97cc9d751982640f' }
-  { id: '42b095ee3d96ad3670ef6e4d638cfeadd75671f5' }
-  { id: '1012da7b037762812a6b6ef4e9a2c2a286d8b63e' }
+  { id: 'b2e9a9fb' }
+  { id: '941afded' }
+  { id: 'f2091ee5' }
 ]
 inject = (injectTarget, gobiStoryIds) ->
   body = document.body or document.getElementByTagName('body')[0]
