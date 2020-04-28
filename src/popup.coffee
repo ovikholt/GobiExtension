@@ -9,13 +9,17 @@ getTextareaContent = ->
 button = document.getElementsByTagName('button')[0]
 button.addEventListener 'click', (event) ->
   responseHandler = (response) ->
-    window.close()  # close popup
+    window.close()
   content = getTextareaContent()
   gobiStoryIds = content.split(/id=|[^0-9a-f]/).filter((n) -> !!n).map((n) -> n.trim())
   chrome.tabs.sendMessage firstTabId, {type: 'letUserClickElement', gobiStoryIds: gobiStoryIds}, responseHandler
+
 upButton = document.getElementById 'up-dom-hierarchy'
 upButton.addEventListener 'click', (event) ->
   chrome.tabs.sendMessage firstTabId, {type: 'moveGobiUpDomHierarchy'}, ->
 rightButton = document.getElementById 'right-dom-hierarchy'
 rightButton.addEventListener 'click', (event) ->
   chrome.tabs.sendMessage firstTabId, {type: 'moveGobiRightDomHierarchy'}, ->
+leftButton = document.getElementById 'left-dom-hierarchy'
+leftButton.addEventListener 'click', (event) ->
+  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiLeftDomHierarchy'}, ->

@@ -1,0 +1,33 @@
+doctype html
+head
+  style
+    :stylus
+      body
+        margin 10px
+      button
+        min-width 50px
+        height 60px
+        outline none
+        margin 10px
+      textarea
+        min-width 350px
+        min-height 70px
+        padding 10px
+        margin 10px
+      .button-stretcher
+        display flex
+        flex-direction row
+        button
+          flex 1
+
+textarea(placeholder='Paste your story keys here, in any format')
+
+.button-stretcher
+  button#insert-gobi Insert Gobi where I click
+div Repeatedly click the following buttons until it looks OK
+.button-stretcher
+  button#left-dom-hierarchy ←/↑
+  button#up-dom-hierarchy ⇪
+  button#right-dom-hierarchy →/↓
+
+script(src='coffee-to-js-output/popup.js')

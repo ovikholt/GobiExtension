@@ -3,21 +3,22 @@
   "name":         "Gobi Insert Stories",
   "short_name":   "Gobi Stories",
   "description":  "Inserts Gobi story bubbles on any webpage, to help when demonstrating Gobi",
-  "version":      "2.0.2",
+  "version":      "3.0.0",
   "permissions": ["activeTab"],
   "background": {
     "scripts": []
   },
+  "web_accessible_resources" : ["dist/coffee-to-js-output/bubble-instantiator.js"],
   "browser_action": {
     "default_icon": {
       "128": "extension_icon.png"
     },
-    "default_popup": "popup.html"
+    "default_popup": "dist/popup.html"
   },
   "content_scripts": [ {
       "exclude_globs":    [  ],
       "include_globs":    [ "*" ],
-      "js":               [ "dist/browserify-output/content-script.js" ],
+      "js":               [ "dist/browserify-output/content-script.js"],
       "matches":          [ "https://*/*" ],
       "run_at":           "document_idle"
   } ],

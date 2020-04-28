@@ -1,45 +1,47 @@
 {
-  "name": "gobi-insert-stories",
-  "version": "2.0.2",
-  "description": "Lets you click to pop up Gobi bubbles on any webpage",
-  "main": "src/index.coffee",
-  "scripts": {
-    "create-zip": "zip -r ../GobiInsertStories.zip . -x '*.git*' -x '*node_modules*'",
-    "build": "sh build.sh",
-    "test": "npx jest"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@gobistories/gobi-web-integration": "^5.1.1",
-    "coffeescript": "^2.2.3",
-    "jest": "^25.1.0",
-    "jest-preset-coffeescript": "^1.1.1"
-  },
-  "jest": {
-    "verbose": true,
-    "preset": "jest-preset-coffeescript",
-    "testRegex": "tests/.*jest\\.coffee",
-    "moduleFileExtensions": [
-      "coffee",
-      "js",
-      "ts",
-      "json"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ovikholt/GobiInsertStories.git"
-  },
-  "keywords": [
-    "gobi",
-    "story",
-    "stories",
-    "bubbles"
-  ],
-  "author": "ovikholt@gmail.com",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/ovikholt/GobiInsertStories/issues"
-  },
-  "homepage": "https://github.com/ovikholt/GobiInsertStories#readme"
+    "name": "gobi-insert-stories",
+    "version": "3.0.0",
+    "description": "Lets you click to pop up Gobi bubbles on any webpage",
+    "main": "src/index.coffee",
+    "scripts": {
+        "create-zip": "zip -r ../GobiInsertStories.zip . -x '*.git*' -x '*node_modules*'",
+        "build": "sh build.sh",
+        "test": "jest"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "coffeescript": "^2.2.3",
+        "jest": "^25.1.0",
+        "jest-preset-coffeescript": "^1.1.1",
+        "jstransformer-stylus": "^1.5.0",
+        "pug": "^2.0.4",
+        "stylus": "^0.54.7"
+    },
+    "jest": {
+        "verbose": true,
+        "preset": "jest-preset-coffeescript",
+        "testRegex": "tests/.*jest\\.coffee",
+        "moduleFileExtensions": [
+            "coffee",
+            "js",
+            "ts",
+            "json"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ovikholt/GobiInsertStories.git"
+    },
+    "keywords": [
+        "gobi",
+        "story",
+        "stories",
+        "bubbles"
+    ],
+    "author": "ovikholt@gmail.com",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/ovikholt/GobiInsertStories/issues"
+    },
+    "homepage": "https://github.com/ovikholt/GobiInsertStories#readme"
 }
