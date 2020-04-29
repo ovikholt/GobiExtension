@@ -5,5 +5,6 @@ window.addEventListener 'message', (event) ->
       stories: event.data.stories
       autoSegue: true
     (window.gobiBubbleSets = window.gobiBubbleSets or []).push bubbles
+    bubbles.container.scrollIntoView()
 
 window.postMessage type: 'INSTANTIATOR_LOADED'
