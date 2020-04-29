@@ -1,5 +1,5 @@
 name: gobi-insert-stories
-version: 3.0.3
+version: 3.0.4
 description: Lets you click to pop up Gobi bubbles on any webpage
 main: src/index.coffee
 scripts:
