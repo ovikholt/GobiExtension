@@ -3,7 +3,7 @@
   "name":         "Gobi Insert Stories",
   "short_name":   "Gobi Stories",
   "description":  "Inserts Gobi story bubbles on any webpage, to help when demonstrating Gobi",
-  "version":      "3.0.0",
+  "version":      "3.0.1",
   "permissions": ["activeTab"],
   "background": {
     "scripts": []

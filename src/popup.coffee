@@ -16,10 +16,10 @@ button.addEventListener 'click', (event) ->
 
 upButton = document.getElementById 'up-dom-hierarchy'
 upButton.addEventListener 'click', (event) ->
-  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiUpDomHierarchy'}, ->
+  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiUpDomHierarchy'}
 rightButton = document.getElementById 'right-dom-hierarchy'
 rightButton.addEventListener 'click', (event) ->
-  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiRightDomHierarchy'}, ->
+  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiRightDomHierarchy'}
 leftButton = document.getElementById 'left-dom-hierarchy'
 leftButton.addEventListener 'click', (event) ->
-  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiLeftDomHierarchy'}, ->
+  chrome.tabs.sendMessage firstTabId, {type: 'moveGobiLeftDomHierarchy'}

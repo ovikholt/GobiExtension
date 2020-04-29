@@ -14,35 +14,46 @@ injectStyle = (innerHTML) ->
 
 injectStyle '.gobi-popup-vfB8k { z-index: 9999; opacity: 1 }'
 
-injectJs = (link, onload) ->
+injectJs = ({src, id, text, onload}) ->
   scriptElement = document.createElement 'script'
   scriptElement.type = 'text/javascript'
-  scriptElement.src = link
-  scriptElement.onload = onload
+  if src then scriptElement.src = src
+  if text then scriptElement.text = text
+  scriptElement.id = id
+  scriptElement.onload = onload # never triggered
   (document.body or document.head or document.documentElement).appendChild scriptElement
 
+createInlineGwiAndInstantiator = (onload) ->
+  fetch 'https://unpkg.com/@gobistories/gobi-web-integration@>6.0.0/dist/index.js'
+  .then (gwiResponse) ->
+    fetch chrome.extension.getURL 'dist/coffee-to-js-output/bubble-instantiator.js'
+    .then (instantiatorResponse) ->
+      injectJs
+        id: 'gobi-web-integration-inline-script'
+        text: (await gwiResponse.text()) + ';' + (await instantiatorResponse.text())
+  window.addEventListener 'message', (event) ->
+    if event.source is window and event.data.type is 'INSTANTIATOR_LOADED'
+      onload()
+
 inject = (injectTarget, gobiStoryIds) ->
-  script = document.createElement 'script'
-  script.src = 'https://unpkg.com/@gobistories/gobi-web-integration@>6.0.0/dist/index.js'
-  script.type = 'text/javascript'
-  script.onload = ->
-    lastGobiContainer = document.createElement 'div'
-    injectTarget.appendChild lastGobiContainer
-    lastGobiContainer.id = 'gobi-' + Math.random().toString(36).slice(2)
-    gobiStories = gobiStoryIds.map (id) -> { id: id }
-    triggerInstantiateBubbles = ->
-      window.postMessage
-        type: 'INSTANTIATE_BUBBLES'
-        id: lastGobiContainer.id
-        stories: if gobiStories.length then gobiStories else defaultStories
-      , '*'
-    injectJs chrome.extension.getURL('dist/coffee-to-js-output/bubble-instantiator.js'), triggerInstantiateBubbles
-  (document.body or document.head or document.documentElement).appendChild script
+  lastGobiContainer = document.createElement 'div'
+  injectTarget.appendChild lastGobiContainer
+  lastGobiContainer.id = 'gobi-container-' + Math.random().toString(36).slice(2)
+  gobiStories = gobiStoryIds.map (id) -> { id: id }
+  window.postMessage
+    type: 'INSTANTIATE_BUBBLES'
+    id: lastGobiContainer.id
+    stories: if gobiStories.length then gobiStories else defaultStories
+  , '*'
+
 letUserClickElement = (gobiStoryIds) ->
   documentWideClickListener = (event) ->
     event = event or window.event
     clickedElement = event.target or event.srcElement
-    inject clickedElement, gobiStoryIds
+    if document.querySelector '#gobi-web-integration-inline-script'
+      inject clickedElement, gobiStoryIds
+    else
+      createInlineGwiAndInstantiator -> inject clickedElement, gobiStoryIds
     event.preventDefault()
     document.removeEventListener 'click', documentWideClickListener
   document.addEventListener 'click', documentWideClickListener, false

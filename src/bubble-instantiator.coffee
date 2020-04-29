@@ -5,5 +5,5 @@ window.addEventListener 'message', (event) ->
       stories: event.data.stories
       autoSegue: true
     (window.gobiBubbleSets = window.gobiBubbleSets or []).push bubbles
-, false
 
+window.postMessage type: 'INSTANTIATOR_LOADED'
