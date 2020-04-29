@@ -3,8 +3,9 @@ version: 3.0.3
 description: Lets you click to pop up Gobi bubbles on any webpage
 main: src/index.coffee
 scripts:
-  create-zip: zip -r ../GobiInsertStories.zip . -x '*.git*' -x '*node_modules*'
-  build: sh build.sh
+  publish: ./npm-scripts/publish.sh
+  create-zip: ./npm-scripts/create-zip.sh
+  build: ./npm-scripts/build.sh
   test: jest
 dependencies: {}
 devDependencies:
