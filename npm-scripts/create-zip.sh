@@ -1,1 +1,3 @@
-zip -r ../GobiInsertStories.zip . -x '*.git*' -x '*node_modules*'
+FILENAME=../GobiInsertStories.zip
+rm $FILENAME
+zip -r $FILENAME . -x '*.git*' -x '*node_modules/*'
